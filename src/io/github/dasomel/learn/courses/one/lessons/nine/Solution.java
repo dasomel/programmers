@@ -1,8 +1,10 @@
 package io.github.dasomel.learn.courses.one.lessons.nine;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
+ * 코딩테스트 연습 > 해시 > 전화번호 목록
+ *
  * 문제 설명
  * 전화번호부에 적힌 전화번호 중, 한 번호가 다른 번호의 접두어인 경우가 있는지 확인하려 합니다.
  * 전화번호가 다음과 같을 경우, 구조대 전화번호는 영석이의 전화번호의 접두사입니다.
@@ -32,6 +34,16 @@ public class Solution {
     public static boolean solution(String[] phone_book) {
         boolean answer = true;
 
+
+        Set<String> phoneNumbers = new HashSet<>(Arrays.asList(phone_book));
+        List<String> output = Arrays.stream
+
+                Arrays.stream(phone_book).anyMatch(
+                phoneNumber -> phoneNumbers.contains(phoneNumber)
+                )
+
+
+        System.out.println("output: " + output);
         System.out.println("answer: " + answer);
         return answer;
     }
