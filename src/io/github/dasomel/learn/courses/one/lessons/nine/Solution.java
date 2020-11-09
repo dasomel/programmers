@@ -34,16 +34,15 @@ public class Solution {
     public static boolean solution(String[] phone_book) {
         boolean answer = true;
 
+        Arrays.sort(phone_book);
 
-        Set<String> phoneNumbers = new HashSet<>(Arrays.asList(phone_book));
-        List<String> output = Arrays.stream
+        for(int i=0; i<phone_book.length-1; i++) {
+            if(phone_book[i+1].startsWith(phone_book[i])) {
+                answer = false;
+                break;
+            }
+        }
 
-                Arrays.stream(phone_book).anyMatch(
-                phoneNumber -> phoneNumbers.contains(phoneNumber)
-                )
-
-
-        System.out.println("output: " + output);
         System.out.println("answer: " + answer);
         return answer;
     }
